@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  },
+  "name": "react-echart-demo",
+  "version": "1.0.0",
+  "description": "this",
+  "main": "index.js",
+  "dependencies": {
+
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuyuqin1991/react-echart-demo.git"
+  },
+  "keywords": [
+    "react",
+    "webpack"
+  ],
+  "author": "liuyuqin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuyuqin1991/react-echart-demo/issues"
+  },
+  "homepage": "https://github.com/liuyuqin1991/react-echart-demo#readme"
+}
