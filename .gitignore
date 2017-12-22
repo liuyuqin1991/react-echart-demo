@@ -8,5 +8,5 @@ dev
 dist
 test
 tmp
-public
+build
 

@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import Echarts from './echarts';
+import ReactEcharts from './components/echarts/reactEcharts';
 
 import './css/main.css';
 
-render(<Echarts />, document.getElementById('root'));
+render(<ReactEcharts />, document.getElementById('root'));

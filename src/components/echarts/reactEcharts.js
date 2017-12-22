@@ -3,9 +3,9 @@
  */
 
 import React, {Component} from 'react'
-import styles from './css/echarts.css';
+import styles from '../../css/echarts.css';
 import echarts from 'echarts';
-class Echarts extends Component{
+class ReactEcharts extends Component{
 	
 	
 	componentDidMount() {
@@ -37,4 +37,4 @@ class Echarts extends Component{
 	}
 }
 
-export default Echarts
+export default ReactEcharts
