@@ -1,8 +1,8 @@
 /**
  * Created by liuyuqin on 2017/12/22.
  */
-const greeter = require('./greeter.js');
+import React from 'react';
+import {render} from 'react-dom';
+import Greeter from './greeter';
 
-
-
-document.querySelector("#root").appendChild(greeter());
+render(<Greeter />, document.getElementById('root'));

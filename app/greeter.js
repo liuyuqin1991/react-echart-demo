@@ -1,8 +1,18 @@
 /**
  * Created by liuyuqin on 2017/12/22.
  */
-module.exports = function() {
-	const greet = document.createElement('div');
-	greet.textContent = "Hi there and greetings!";
-	return greet;
-};
+
+import React, {Component} from 'react'
+import config from './json/config.json';
+
+class Greeter extends Component{
+	render() {
+		return (
+			<div>
+				{config.greetText}
+			</div>
+		);
+	}
+}
+
+export default Greeter
