@@ -1,17 +1,25 @@
+/**
+ * Created by liuyuqin on 2017/12/22.
+ */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
-	devtool: 'eval-source-map',
+	devtool: 'none',
 	entry:  __dirname + "/app/main.js",//已多次提及的唯一入口文件
 	output: {
 		path: __dirname + "/public",//打包后的文件存放的地方
-		filename: "bundle.js"//打包后输出文件的文件名
+		//打包后输出文件的文件名，
+		//webpack可以把一个哈希值添加到打包的文件名中，使用方法如下,添加特殊的字符串混合体（[name], [id] and [hash]）到输出文件名前
+		filename: "bundle-[hash].js"
 	},
 	devServer: {
 		contentBase: "./public",//本地服务器所加载的页面所在的目录
 		historyApiFallback: true,//不跳转
-		inline: true//实时刷新
+		inline: true,
+		hot: true
 	},
 	module: {
 		rules: [
@@ -44,8 +52,18 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: __dirname + "/app/html/index.tmpl.html"
 		}),
-		//允许你在修改组件代码后，自动刷新实时预览修改后的效果
-		new webpack.HotModuleReplacementPlugin()
+		//为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+		new webpack.optimize.OccurrenceOrderPlugin(),
+		//压缩JS代码；
+		new webpack.optimize.UglifyJsPlugin(),
+		//分离CSS和JS文件
+		new ExtractTextPlugin("style.css"),
+		//去除build文件中的残余文件,添加了hash之后，会导致改变文件内容后重新打包时，文件名不同而内容越来越多，因此这里介绍另外一个很好用的插件clean-webpack-plugin
+		new CleanWebpackPlugin('build/*.*', {
+			root: __dirname,
+			verbose: true,
+			dry: false
+		})
 	],
 };
 
