@@ -3,6 +3,8 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import Greeter from './greeter';
+import Echarts from './echarts';
 
-render(<Greeter />, document.getElementById('root'));
+import './css/main.css';
+
+render(<Echarts />, document.getElementById('root'));
