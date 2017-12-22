@@ -1,5 +1,7 @@
 /* Greeter.css */
 .root {
+    width: 400px;
+    height: 400px;
     background-color: #eee;
     padding: 10px;
     border: 3px solid #ccc;

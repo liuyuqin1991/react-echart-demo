@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
 	devtool: 'eval-source-map',
@@ -45,7 +46,13 @@ module.exports = {
 			template: __dirname + "/app/html/index.tmpl.html"
 		}),
 		//允许你在修改组件代码后，自动刷新实时预览修改后的效果
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		//去除build文件中的残余文件,添加了hash之后，会导致改变文件内容后重新打包时，文件名不同而内容越来越多，因此这里介绍另外一个很好用的插件clean-webpack-plugin
+		new CleanWebpackPlugin('public/*.*', {
+			root: __dirname,
+			verbose: true,
+			dry: false
+		})
 	],
 };
 
