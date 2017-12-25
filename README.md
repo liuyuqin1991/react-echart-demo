@@ -8,4 +8,4 @@ demo3:实现了最简单的react echart webpack的集成，展示一个简单的
 
 demo4：加入Echarts通用配置工厂，并使用
 
-demo5：Echarts图表实时配置及显示
+demo5：Echarts图表标题属性实时配置及显示
