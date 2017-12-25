@@ -29,7 +29,7 @@ const chart_type_map = 'map';
 const split_number = 5;
 
 
-class EchartRender {
+class CommonEchartsConfig {
 
     constructor() {
 
@@ -218,16 +218,16 @@ class EchartRender {
     static setPiePosition(option,center){
         option.series[0].center = center;
     }
-  
-  /**
-   * 个性化配置调用方法：设置图表图例的显示与否
-   * @param option
-   * @param isShow 是否显示，boolean类型
-   */
-  static setLegendIsShow(option,isShow){
-    option.legend.show = isShow;
-  }
-
+    
+    /**
+    * 个性化配置调用方法：设置图表图例的显示与否
+    * @param option
+    * @param isShow 是否显示，boolean类型
+    */
+    static setLegendIsShow(option,isShow){
+        option.legend.show = isShow;
+    }
+    
     /**
      * 个性化配置调用方法：设置图表图例的显示位置
      * @param option
@@ -240,21 +240,21 @@ class EchartRender {
         option.legend.x = x;
         option.legend.y = y;
     }
-
-  /**
-   * 个性化配置调用方法：设置图表工具栏的显示位置
-   * @param option
-   * @param orient 布局方式，默认为水平布局，可选为：'horizontal' | 'vertical'
-   * @param x 水平安放位置，默认为全图居中，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）
-   * @param y 垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）
-   */
-  static setToolboxPosition(option,orient,x,y){
-    option.toolbox.orient = orient;
-    option.toolbox.x = x;
-    option.toolbox.y = y;
-  }
-
-
+    
+    /**
+    * 个性化配置调用方法：设置图表工具栏的显示位置
+    * @param option
+    * @param orient 布局方式，默认为水平布局，可选为：'horizontal' | 'vertical'
+    * @param x 水平安放位置，默认为全图居中，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）
+    * @param y 垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）
+    */
+    static setToolboxPosition(option,orient,x,y){
+        option.toolbox.orient = orient;
+        option.toolbox.x = x;
+        option.toolbox.y = y;
+    }
+    
+    
     /**
      * 个性化配置调用方法：为折线坐标轴添加辅助线
      * @param option
@@ -322,7 +322,7 @@ class EchartRender {
             }
         }
     }
-
+    
     /**
      * 个性化配置调用方法：开启地图漫游组件 仅支持地图
      * @param option
@@ -339,9 +339,25 @@ class EchartRender {
             }
         };
     }
+    
+    /**
+     * 设置主标题
+     * @param option
+     * @param title 标题
+     */
+    static setTitleText(option,titleText){
+        if(option.title){
+            option.title.text = titleText;
+        }
+        else{
+            option.title = {
+                text:titleText
+            }
+        }
+    }
 }
 
-export {EchartRender};
+export {CommonEchartsConfig};
 
 /**
  * 增加值域最大值，最小值默认为0
@@ -452,7 +468,7 @@ function initDefault(chartType,echartTitle,legendData,seriesData,tooltipCallBack
         //装载title
         let title = {
             text : echartTitle,
-            show : false //默认应该开启，显示图标标题
+            show : true //默认应该开启，显示图标标题
         };
         //设置legend
         let legend = {

@@ -23,6 +23,7 @@
   "main": "index.js",
   "dependencies": {
     "echarts": "^3.8.5",
+    "pubsub-js": "^1.5.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
