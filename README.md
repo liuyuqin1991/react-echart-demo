@@ -9,3 +9,5 @@ demo3：实现了最简单的react echart webpack的集成，展示一个简单�
 demo4：加入Echarts通用配置工厂，并使用
 
 demo5：Echarts图表标题属性实时配置及显示
+
+demo6：集成react antd组件，再加入一个标题是否显示属性实时配置及显示
