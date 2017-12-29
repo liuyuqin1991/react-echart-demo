@@ -355,6 +355,23 @@ class CommonEchartsConfig {
             }
         }
     }
+	
+	/**
+	 * 设置主标题
+	 * @param option
+	 * @param isShow 是否显示
+	 */
+    static setTitleIsShow(option,isShow){
+		if(isShow){
+		    switch (isShow){
+                case "0": option.title.show = false;break;
+				case "1": option.title.show = true;break;
+            }
+		}
+		else{
+			option.title.show = true;
+		}
+    }
 }
 
 export {CommonEchartsConfig};

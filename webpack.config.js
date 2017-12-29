@@ -1,10 +1,13 @@
+/**
+ * Created by liuyuqin on 2017/12/22.
+ */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
 	devtool: 'eval-source-map',
-	entry:  __dirname + "/src/index.js",//已多次提及的唯一入口文件
+	entry:  __dirname + "/src/Index.js",//已多次提及的唯一入口文件
 	output: {
 		path: __dirname + "/build",//打包后的文件存放的地方
 		filename: "bundle.js"//打包后输出文件的文件名
@@ -22,19 +25,17 @@ module.exports = {
 					loader: "babel-loader"
 				},
 				exclude: /node_modules/
-			},{
+			},
+			//对自己的css代码开启css模块化 对antd关闭css模块化，才能保证antd的CSS正确引入
+			{
 				test: /\.css$/,
-				use: [
-					{
-						loader: "style-loader"
-					}, {
-						loader: "css-loader",
-						options: {
-							modules: true, // 指定启用css modules
-							localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
-						}
-					}
-				]
+				exclude: /(node_modules)/,
+				loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]'
+			},
+			{
+				test: /\.css$/,
+				exclude: /(src)/,
+				loader: 'style-loader!css-loader'
 			}
 		]
 	},
