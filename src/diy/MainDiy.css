@@ -3,3 +3,19 @@
     padding: 10px;
 }
 
+#components-layout-demo-top-side-2 .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255,255,255,.2);
+    margin: 16px 28px 16px 0;
+    float: left;
+}
+
+.mainContent{
+    height: inherit;
+    background: #fff;
+    padding: 24px;
+    margin: 0px;
+    min-height: 280px
+}
+

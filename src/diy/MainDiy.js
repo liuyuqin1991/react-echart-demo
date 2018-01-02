@@ -1,16 +1,12 @@
 import React, {Component} from 'react'
-import { Form,Button,Icon } from 'antd';
+import { Layout,Menu,Icon,Button } from 'antd';
 import 'antd/dist/antd.css';
-import Styles from './MainDiy.css'
-import Line from '../components/echarts/Line'
-import Pie from '../components/echarts/Pie'
+import Styles from './MainDiy.css';
 
-const FormItem = Form.Item;
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
 
-const LINE = "line";
-const PIE = "pie";
-
-class MainDiy extends React.Component {
+class MainDiy extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -18,64 +14,55 @@ class MainDiy extends React.Component {
 		}
 	}
 	
-	addEcharts(type){
-		let echarts = this.state.echarts;
-		if(type === LINE){
-			echarts.push({
-				type:LINE
-			});
-		}
-		else if(type === PIE){
-			echarts.push({
-				type:PIE
-			});
-		}
-		this.setState({
-			echarts : echarts
-		});
-	}
-	
 	render() {
-		const formItemLayoutWithOutLabel = {
-			wrapperCol: {
-				xs: { span: 24, offset: 0 },
-				sm: { span: 20, offset: 4 },
-			},
-		};
-		const formItems = this.state.echarts.map((k, index) => {
-			const componentsId = "echart_" + index;
-			if(k.type === LINE){
-				return (
-					<FormItem key={index}>
-						<Line componentsId={componentsId}/>
-					</FormItem>
-				);
-			}
-			else if(k.type === PIE){
-				return (
-					<FormItem key={index}>
-						<Pie componentsId={componentsId}/>
-					</FormItem>
-				);
-			}
-		});
 		return(
-			<div className={Styles.p10}>
-				<Form>
-					{formItems}
-					<FormItem {...formItemLayoutWithOutLabel}>
-						<Button type="dashed" onClick={this.addEcharts.bind(this,LINE)} style={{ width: '60%' }}>
-							<Icon type="plus" /> Add line field
-						</Button>
-						<Button type="dashed" onClick={this.addEcharts.bind(this,PIE)} style={{ width: '60%' }}>
-							<Icon type="plus" /> Add pie field
-						</Button>
-					</FormItem>
-				</Form>
-			</div>
+			<Layout>
+				<Header className="header">
+					<div className="logo" />
+				</Header>
+				<Layout>
+					<Sider width={200} style={{ background: '#fff' }}>
+						<Menu
+							mode="inline"
+							defaultSelectedKeys={['1']}
+							defaultOpenKeys={['sub1']}
+							style={{ height: '100%', borderRight: 0 }}
+						>
+							<SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
+								<Menu.Item key="1">
+									<Button type="dashed" icon="search" >折线图</Button>
+								</Menu.Item>
+								<Menu.Item key="2">
+									<Button type="dashed" icon="search" >饼图</Button>
+								</Menu.Item>
+								<Menu.Item key="3">
+									<Button type="dashed" icon="search" >柱状图</Button>
+								</Menu.Item>
+							</SubMenu>
+							<SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
+								<Menu.Item key="5">option5</Menu.Item>
+								<Menu.Item key="6">option6</Menu.Item>
+								<Menu.Item key="7">option7</Menu.Item>
+								<Menu.Item key="8">option8</Menu.Item>
+							</SubMenu>
+							<SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
+								<Menu.Item key="9">option9</Menu.Item>
+								<Menu.Item key="10">option10</Menu.Item>
+								<Menu.Item key="11">option11</Menu.Item>
+								<Menu.Item key="12">option12</Menu.Item>
+							</SubMenu>
+						</Menu>
+					</Sider>
+					<Layout style={{ padding: '24px' }}>
+						<Content className={Styles.mainContent}>
+							Content
+						</Content>
+					</Layout>
+				</Layout>
+			</Layout>
 		);
 	}
 }
 
 
-export default Form.create()(MainDiy);
+export default MainDiy;
