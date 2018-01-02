@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import BasicLayout from './layout/BasicLayout';
+import MainDiy from './diy/MainDiy';
 
 import './css/main.css';
 
-render(<BasicLayout />, document.getElementById('root'));
+render(<MainDiy />, document.getElementById('root'));

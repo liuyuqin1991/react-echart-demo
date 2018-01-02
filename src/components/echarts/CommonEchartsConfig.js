@@ -38,10 +38,10 @@ class CommonEchartsConfig {
   /**
    * 折线图通用化配置调用入口
    * @param echartTitle 图表名称
-   * @param legendData 图例
-   * @param seriesData 数据
+   * @param legendData 图例 例如['最低气温','最高气温']
+   * @param seriesData 数据 例如[['12°','15°','16°'],['22°','25°','32°']]，注意seriesData数组的长度要等于legendData的长度
    * @param tooltipCallBack 提示信息回调函数
-   * @param xAxisData x轴类别信息
+   * @param xAxisData x轴类别信息 例如['五月','六月','七月']
    * @returns {*}
    */
     static initDefaultLine(echartTitle,legendData,seriesData,tooltipCallBack,xAxisData){
@@ -53,10 +53,10 @@ class CommonEchartsConfig {
   /**
    * 柱状图通用化配置调用入口
    * @param echartTitle 图表名称
-   * @param legendData 图例
-   * @param seriesData 数据
+   * @param legendData 图例 例如['最低气温','最高气温']
+   * @param seriesData 数据 例如[['12°','15°','16°'],['22°','25°','32°']]，注意seriesData数组的长度要等于legendData的长度
    * @param tooltipCallBack 提示信息回调函数
-   * @param xAxisData x轴类别信息
+   * @param xAxisData x轴类别信息 例如['五月','六月','七月']
    * @returns {*}
    */
     static initDefaultBar(echartTitle,legendData,seriesData,tooltipCallBack,xAxisData){
@@ -83,8 +83,8 @@ class CommonEchartsConfig {
   /**
    * 饼图通用化配置调用入口
    * @param echartTitle 图表名称
-   * @param legendData 图例
-   * @param seriesData 数据
+   * @param legendData 图例 例如['最低气温','最高气温']
+   * @param seriesData 数据 例如['22°','25°']，注意seriesData数组的长度要等于legendData的长度
    * @param tooltipCallBack 提示信息回调函数
    * @param max 最大值（为切换漏斗图使用，如不需切换，可修改代码）
    * @returns {*}
@@ -253,6 +253,18 @@ class CommonEchartsConfig {
         option.toolbox.x = x;
         option.toolbox.y = y;
     }
+	
+	
+	/**
+	 * 设置主标题位置
+     * @param option
+     * @param x 水平安放位置，默认为全图居中，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）
+	 * @param y 垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）
+	 */
+	static setTitlePosition(option,x,y){
+		option.title.x = x;
+		option.title.y = y;
+	}
     
     
     /**
@@ -673,12 +685,11 @@ function settingDefaultPieSeries(option,legendData,seriesData,tooltipCallBack){
             tempData.push({
                 value: seriesData[i].value,
                 name : seriesData[i].name,
-                params : seriesData[i].params,
             });
 		});
         series.push({
             type : chart_type_pie,
-            radius : '65%',
+            radius : '45%',
             minAngle : 5,
             center : ['50%', '60%'],
             data : tempData

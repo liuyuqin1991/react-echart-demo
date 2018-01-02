@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ReactEcharts from '../components/echarts/ReactEcharts';
-import EditEchartsConfig from "../components/config/EditEchartsConfig";
+import EditEchartsConfig from "../components/config/LineConfig";
 
 class BasicLayout extends React.Component {
 	
