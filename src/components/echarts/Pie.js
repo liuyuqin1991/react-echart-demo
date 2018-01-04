@@ -6,7 +6,6 @@ import React, {Component} from 'react'
 import styles from '../../css/echarts.css';
 import echarts from 'echarts';
 import PubSub from 'pubsub-js';
-import PieConfig from '../config/PieConfig';
 import { CommonEchartsConfig } from './CommonEchartsConfig'
 
 
@@ -24,8 +23,6 @@ class Pie extends Component{
 	componentDidMount() {
 		const PieData = [
 			{value:235, name:'直接访问'},
-			// {value:90, name:'邮件营销'},
-			// {value:490, name:'联盟广告'},
 			{value:720, name:'视频广告'},
 			{value:1548, name:'搜索引擎'}
 		];
@@ -57,11 +54,7 @@ class Pie extends Component{
 	
 	render() {
 		return (
-			<div>
-				<div id={this.props.componentsId} className={styles.root}>
-				
-				</div>
-				<PieConfig componentsId={this.props.componentsId}/>
+			<div id={this.props.componentsId} className={styles.root}>
 			</div>
 		);
 	}

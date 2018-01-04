@@ -5,6 +5,7 @@ import Constant from '../constant/Constant';
 import Draggable from 'react-draggable';
 import Styles from './MainDiy.css';
 import Line from '../components/echarts/Line';
+import Pie from '../components/echarts/Pie';
 
 const { SubMenu } = Menu;
 const { Header} = Layout;
@@ -52,13 +53,24 @@ class MainDiy extends Component {
 	render() {
 		const formItems = this.state.echarts.map((k, index) => {
 			const componentsId = "echart_" + index;
-			return (
-				<Draggable bounds="parent" key={index}>
-					<div className={Styles.initEchart}>
-						<Line componentsId={componentsId}/>
-					</div>
-				</Draggable>
-			);
+			if(k.type === Constant.LINE){
+				return (
+					<Draggable bounds="parent" key={index}>
+						<div className={Styles.initEchart}>
+							<Line componentsId={componentsId}/>
+						</div>
+					</Draggable>
+				);
+			}
+			else if(k.type === Constant.PIE){
+				return (
+					<Draggable bounds="parent" key={index}>
+						<div className={Styles.initEchart}>
+							<Pie componentsId={componentsId}/>
+						</div>
+					</Draggable>
+				);
+			}
 		});
 		return(
 			<Layout>
