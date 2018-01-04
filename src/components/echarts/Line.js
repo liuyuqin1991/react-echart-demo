@@ -6,9 +6,7 @@ import React, {Component} from 'react'
 import styles from '../../css/echarts.css';
 import echarts from 'echarts';
 import PubSub from 'pubsub-js';
-import LineConfig from '../config/LineConfig';
 import { CommonEchartsConfig } from './CommonEchartsConfig'
-
 
 class Line extends Component{
 	
@@ -48,14 +46,10 @@ class Line extends Component{
 	
 	render() {
 		return (
-			<div>
-				<div id={this.props.componentsId} className={styles.root}>
-				
-				</div>
-				<LineConfig componentsId={this.props.componentsId}/>
+			<div id={this.props.componentsId} className={styles.root}>
 			</div>
 		);
 	}
 }
 
-export default Line
+export default Line;

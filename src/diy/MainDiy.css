@@ -19,3 +19,38 @@
     min-height: 280px
 }
 
+.echarts{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+
+.react-draggable strong {
+    background: #ddd;
+    border: 1px solid #999;
+    border-radius: 3px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.initEchart{
+    width: 240px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #999;
+    cursor: move;
+}
+
+
+.dragZoom{
+    min-height:600px;
+    background-image: url("../img/m.jpg");
+    background-size: cover;
+}
+
