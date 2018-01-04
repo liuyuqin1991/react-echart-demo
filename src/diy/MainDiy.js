@@ -83,10 +83,10 @@ class MainDiy extends Component {
 							<Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} style={{ height: '100%', borderRight: 0 }}>
 								<SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
 									<Menu.Item key="1">
-										<Button name="折线图" type={Constant.LINE}>折线图</Button>
+										<Button name="折线图" type={Constant.LINE} onClick={this.addEchart.bind(this,Constant.LINE)}><Icon type="plus" />折线图</Button>
 									</Menu.Item>
 									<Menu.Item key="2">
-										<Button name="饼图" type={Constant.PIE}>饼图</Button>
+										<Button name="饼图" type={Constant.PIE} onClick={this.addEchart.bind(this,Constant.PIE)}><Icon type="plus" />饼图</Button>
 									</Menu.Item>
 								</SubMenu>
 							</Menu>
@@ -95,12 +95,6 @@ class MainDiy extends Component {
 							<div className={Styles.dragZoom}>
 								{formItems}
 							</div>
-							<Button type="dashed" onClick={this.addEchart.bind(this,Constant.LINE)} style={{ width: '60%' }}>
-								<Icon type="plus" /> Add line field
-							</Button>
-							<Button type="dashed" onClick={this.addEchart.bind(this,Constant.PIE)} style={{ width: '60%' }}>
-								<Icon type="plus" /> Add bar field
-							</Button>
 						</Col>
 					</Row>
 				</Layout>
