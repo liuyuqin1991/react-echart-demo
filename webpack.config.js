@@ -47,6 +47,7 @@ module.exports = {
 	plugins: [
 		//添加了一个给打包后代码添加版权声明的插件
 		new webpack.BannerPlugin('版权所有，翻版必究'),
+		new webpack.SourceMapDevToolPlugin(),
 		//依据一个简单的index.html模板，生成一个自动引用你打包后的JS文件的新index.html
 		// new HtmlWebpackPlugin({
 		// 	template: __dirname + "/src/html/index.tmpl.html"
